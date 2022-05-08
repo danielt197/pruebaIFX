@@ -1,0 +1,28 @@
+<section class="p-5">
+    <ul class="nav nav-pills nav-fill mb-2">
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/monsters']">Monsters</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" [routerLink]="['/races']">Races</a>
+        </li>
+    </ul>
+
+    <div class="row">
+        <div class="md-12">
+            <div class="input-group mb-3">
+                <span class="input-group-text" >
+                    <i class="bi bi-search"></i>
+                </span>
+                <input  name="search" type="text" class="form-control" placeholder="Search monster" aria-label="Search" [(ngModel)]="search" >
+            </div>
+        </div>
+        <div class="col-md-4" *ngFor="let race of dataRaces | races: search">
+            <div class="card m-2" [routerLink]="['/race-info', race.index]">
+                <div class="card-header">
+                    <h5 class="card-title" align="center">{{race.name}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

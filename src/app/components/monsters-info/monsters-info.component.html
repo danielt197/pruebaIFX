@@ -1,0 +1,67 @@
+
+<div class="spinner-border" role="status" *ngIf="monsterInfo.length == 0">
+    <span class="visually-hidden">Loading...</span>
+</div>
+
+<div class="row" *ngIf="monsterInfo.length != 0">
+    <div class="col-3 Hcenter mt-1">
+        <span class="badge bg-danger">
+            <b>CH:</b> {{monsterInfo.charisma}}
+        </span>
+    </div>
+    <div class="col-3 Hcenter mt-1">
+        <span class="badge bg-danger">
+            <b>CO:</b> {{monsterInfo.constitution}}
+        </span>
+    </div>
+    <div class="col-3 Hcenter mt-1">
+        <span class="badge bg-danger">
+            <b>HP:</b> {{monsterInfo.hit_points}}
+        </span>
+    </div>
+    <div class="col-3 Hcenter mt-1">
+        <span class="badge bg-danger">
+            <b>IN:</b> {{monsterInfo.intelligence}}
+        </span>
+    </div>
+    <div class="col-4 Hcenter mt-1">
+        <span class="badge bg-danger">
+            <b>CR:</b> {{monsterInfo.challenge_rating}}
+        </span>
+    </div>
+    <div class="col-4 Hcenter mt-1">
+        <span class="badge bg-danger">
+            <b>DX:</b> {{monsterInfo.dexterity}}
+        </span>
+    </div>
+    <div class="col-4 Hcenter mt-1">
+        <span class="badge bg-danger">
+            <b>ST:</b> {{monsterInfo.strength}}
+        </span>
+    </div>
+    <div class="col-12 Hcenter mt-1">
+        <span class="badge bg-danger">
+            <b>xp:</b> {{monsterInfo.xp}}
+        </span>
+    </div>
+    <div class="col-6 mt-2">
+        <b>Size:</b> {{monsterInfo.size | titlecase}}
+    </div>
+    <div class="col-6 mt-2">
+        <b>Type:</b> {{monsterInfo.type | titlecase}}
+    </div>
+    <div class="col-12">
+        <b>Immunities:</b> {{monsterInfo.damage_immunities == "" ? 'None' : monsterInfo.damage_immunities | titlecase}}
+    </div>
+    <div class="d-grid gap-2 col-6 mx-auto mt-2">
+        <button (click)="showActions()" class="btn btn-outline-secondary" type="button">Actions</button>
+    </div>
+
+
+</div>
+
+<div class="row mt-1" *ngIf="showAct">
+    <ul class="list-group list-group-flush" >
+        <li class="list-group-item" *ngFor="let action of monsterInfo.actions">{{action.name}}</li>
+    </ul>
+</div>

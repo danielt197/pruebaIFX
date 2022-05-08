@@ -1,0 +1,101 @@
+<div class=" bg-white p-5">
+    <div class="col-12">
+        <i class="bi bi-arrow-left" style="font-size: 35px;" [routerLink]="['/races']"></i>
+        <h1 align="center"> {{raceInfo.name}} </h1>
+    </div>
+
+</div>
+<div class="p-5">
+    <div class="row mt-3">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header" (click)="Toggle('age')">
+                    <h5 class="card-title" > Age  <i class="bi bi-caret-down-fill"></i></h5>
+                </div>
+                <div class="card-body" *ngIf="toggles.age">
+                    {{raceInfo.age}}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header" (click)="Toggle('alignment')">
+                    <h5 class="card-title"> Alignment <i class="bi bi-caret-down-fill"></i></h5>
+                </div>
+                <div class="card-body" *ngIf="toggles.alignment">
+                    {{raceInfo.alignment}}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header" (click)="Toggle('language_desc')">
+                    <h5 class="card-title"> Language Desc <i class="bi bi-caret-down-fill"></i></h5>
+                </div>
+                <div class="card-body" *ngIf="toggles.language_desc">
+                    {{raceInfo.language_desc}}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header" (click)="Toggle('size_description')">
+                    <h5 class="card-title"> Size description <i class="bi bi-caret-down-fill"></i></h5>
+                </div>
+                <div class="card-body" *ngIf="toggles.size_description">
+                    {{raceInfo.size_description}}
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="row mt-2">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Information <i class="bi bi-caret-down-fill"></i></h5>
+                </div>
+                <div class="card-body row">
+                    <div class="col-12">
+                        <span class="badge bg-danger">
+                            <b>SPEED:</b> {{raceInfo.speed}}
+                        </span>
+                    </div>
+                    <div class="col-3 mt-3">    
+                        <h6 class="card-subtitle mb-2">Ability bonuses</h6>
+                        <ul class="list-group list-group-flush" >
+                            <li class="list-group-item" *ngFor="let ability_bonuses of raceInfo.ability_bonuses">
+                                Bonus: {{ability_bonuses.bonus}} ({{ability_bonuses.ability_score.name}})
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-3 mt-3">    
+                        <h6 class="card-subtitle mb-2">Languages</h6>
+                        <ul class="list-group list-group-flush" >
+                            <li class="list-group-item" *ngFor="let languages of raceInfo.languages">
+                                Name: {{languages.name}}
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-3 mt-3">    
+                        <h6 class="card-subtitle mb-2">Subraces</h6>
+                        <ul class="list-group list-group-flush" >
+                            <li class="list-group-item" *ngFor="let subraces of raceInfo.subraces">
+                                Name: {{subraces.name}}
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-3 mt-3">    
+                        <h6 class="card-subtitle mb-2">Traits</h6>
+                        <ul class="list-group list-group-flush" >
+                            <li class="list-group-item" *ngFor="let traits of raceInfo.traits">
+                                Name: {{traits.name}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
